@@ -1,3 +1,14 @@
 {
-    "pages": ["---Guide---", "index"]
+    "pages": [
+        "---Guide---",
+        "index",
+        "---Beta Build---",
+        "beta/index",
+        "---Dev Build---",
+        "dev/index",
+        "dev/dashboard",
+        "dev/domains",
+        "---Prod Build---",
+        "prod/index"
+    ]
 }

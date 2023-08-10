@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: Param }) {
             tocContent={
                 <div className="mt-4 border-t pt-4">
                     <a
-                        href={`https://github.com/CordXApp/Documentation/blob/master/apps/docs/content/${page._raw.sourceFilePath}`}
+                        href={`https://github.com/CordXApp/Documentation/blob/master/content/${page._raw.sourceFilePath}`}
                         target="_blank"
                         rel="noreferrer noopener"
                         className="text-muted-foreground hover:text-foreground text-xs font-medium"

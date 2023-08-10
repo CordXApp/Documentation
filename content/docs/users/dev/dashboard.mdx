@@ -1,0 +1,97 @@
+---
+title: Your Dashboard
+description: Learn all about your CordX Dashboard.
+icon: UserIcon
+---
+
+Your user dashboard is your main step to using and interacting with
+both our website and your uploaded files, images etc. It can be kind of
+complex so we will lay out the key parts of it and their usage for you below.
+
+---
+
+## Overview
+
+Your overview is the main section of your dashboard and displays key statistics
+and information such as how many images you have stored:
+
+![Overview Sample](/dash/overview.png)
+
+---
+
+## Limits
+
+Currently to keep things simple and running smoothly during our development stages
+the website and upload server only allow users to have a max storage/folder size of
+2,000MB, how much storage you have used vs how much you have left will be displayed
+in your dashboard and looks something like this: 
+
+![Usage Sample](/dash/stats.png)
+
+---
+
+## Folder
+
+Your "folder" is the location in our database and website where your uploads are stored
+in the event that we our services fail to create your folder you can create/save it in
+your dashboard (Please make sure the folder name represents your discord id or the site will face issues):
+
+![Folder Sample](/dash/folder.png)
+
+---
+
+## Webhooks
+
+> NOTE: your webhook link can be found/created in the `/interactions > webhooks` section of your discord channel settings
+
+This is our favorite part of the user dashboard and we hope you will love it as much
+as we do, as of `v2.x` of CordX we allow users to receive a discord message to any
+discord channel they choose using webhooks, your webhook can be set in your dashboard
+and saved using the "save webhook" button:
+
+![Webhook Config Sample](/dash/hook_set.png)
+
+The webhooks that will be sent look something like this:
+
+![Webhook Sample](/dash/hook_samp.png)
+
+---
+
+## Your Config
+
+> __**WARNING**__: do not share your config with **anyone** ever.
+
+Your ShareX Config is a json based file that we automatically create for you to add to
+ShareX and tell it where to send your uploads/screenshots. Without this config ShareX will
+have absolutely no idea how to interact with our website.
+
+To download your config simply use the "Download ShareX Config" button located in your dashboard
+
+![Config Sample](/dash/config.png)
+
+To make ShareX use your config simply head over to your "Downloads" folder or wherever you allowed
+your computer to download it to, double click on the ``CordX.sxcu`` file and click yes when ShareX
+asks if you want to use this config: 
+
+![ShareX Prompt](/dash/sharex.png)
+
+---
+
+## Your Secret
+
+> __**WARNING**__: do not share your secret with **anyone** ever.
+
+Your secret is how you and sharex communicate with both our api and upload server for things such as
+image, file and video uploads, you can also use this secret to send your own requests to our
+upload server and/or api.
+
+To view your secret you will notice some "blurred" text in the "options" section of your dashboard
+you can view your secret by hovering over the blurred text or clicking on it for "mobile/tablet" users
+
+![View Secret](/dash/sec_view.png)
+
+To copy or reset your secret you can use either the "Copy Secret" or "Reset Secret" buttons located
+in the same section of your dashboard. Please note that resetting your secret also means it will 
+invalidate any sharex request made using that secret so you will need to re-download your config.
+
+
