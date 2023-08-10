@@ -14,7 +14,7 @@
         "start": "next start"
     },
     "engines": {
-        "node": ">= 18.17.0",
+        "node": ">= 14.x",
         "npm": ">= 9.6.7",
         "yarn": "Err: please use npm >= v9.6.7"
     },
