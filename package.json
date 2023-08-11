@@ -76,6 +76,9 @@
         "./utils/*.{js,jsx,ts,tsx}": [
             "next lint .",
             "prettier -w ."
+        ],
+        "./content/**/*.{md, mdx}": [
+            "prettier -w ."
         ]
     }
 }
