@@ -6,10 +6,7 @@
         "build": "next build",
         "dep:check": "depcheck",
         "dev": "next dev",
-        "format": "prettier -w .",
-        "format:check": "prettier -c .",
         "export": "next export",
-        "lint": "next lint",
         "prepare": "husky install",
         "start": "next start"
     },
@@ -66,9 +63,9 @@
     },
     "lint-staged": {
         "./**/*.{js,jsx,ts,tsx}": [
-            "next lint ./app",
-            "next lint ./components",
-            "next lint ./utils"
+            "eslint ./app --fix",
+            "eslint ./components --fix",
+            "eslint ./utils --fix"
         ],
         "./**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx}": [
             "prettier -w ./app",

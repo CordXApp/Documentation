@@ -6,7 +6,6 @@ import { createElement } from 'react'
 const ctx = loadContext(allMeta, allDocs)
 
 ctx.resolveIcon = icon => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const res = require('lucide-react')
     icon = icon.trim()
 

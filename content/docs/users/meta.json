@@ -9,6 +9,10 @@
         "dev/dashboard",
         "dev/domains",
         "---Prod Build---",
-        "prod/index"
+        "prod/index",
+        "prod/access",
+        "prod/password",
+        "prod/domains",
+        "prod/config"
     ]
 }
