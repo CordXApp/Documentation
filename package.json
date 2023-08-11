@@ -65,11 +65,16 @@
         "typescript": "5.1.6"
     },
     "lint-staged": {
-        "./**/*.{js,jsx,ts,tsx}": [
+        "./app/*.{js,jsx,ts,tsx}": [
             "next lint .",
             "prettier -w ."
         ],
-        "./**/*.{json,css,scss,md}": [
+        "./components/*.{js,jsx,ts,tsx}": [
+            "next lint .",
+            "prettier -w ."
+        ],
+        "./utils/*.{js,jsx,ts,tsx}": [
+            "next lint .",
             "prettier -w ."
         ]
     }

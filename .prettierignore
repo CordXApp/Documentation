@@ -1,0 +1,5 @@
+# Ignore artifacts:
+.next
+.husky
+.github
+.contentlayer
