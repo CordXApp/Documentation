@@ -13,7 +13,7 @@
     "engines": {
         "node": ">= 18.x",
         "npm": ">= 9.x",
-        "yarn": "Err: please use npm >= v9.x"
+        "yarn": "Err: Yarn not supported"
     },
     "dependencies": {
         "@radix-ui/react-accordion": "^1.1.1",
