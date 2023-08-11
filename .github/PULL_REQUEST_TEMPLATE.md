@@ -2,8 +2,6 @@
 - [ ] The commit message follows our guidelines
 - [ ] Tests for the changes have been added (for bug fixes / features)
 - [ ] Docs have been added / updated (for bug fixes / features)
-- [ ] Linter has been ran successfully (npm run lint)
-- [ ] Formating has been completed with no following errors (npm run format)
 
 
 * **What kind of change does this PR introduce?** (Bug fix, feature, docs update, ...)
