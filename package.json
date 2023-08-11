@@ -65,20 +65,16 @@
         "typescript": "5.1.6"
     },
     "lint-staged": {
-        "./app/*.{js,jsx,ts,tsx}": [
-            "next lint .",
-            "prettier -w ."
+        "./**/*.{js,jsx,ts,tsx}": [
+            "next lint ./app",
+            "next lint ./components",
+            "next lint ./utils"
         ],
-        "./components/*.{js,jsx,ts,tsx}": [
-            "next lint .",
-            "prettier -w ."
-        ],
-        "./utils/*.{js,jsx,ts,tsx}": [
-            "next lint .",
-            "prettier -w ."
-        ],
-        "./content/**/*.{md, mdx}": [
-            "prettier -w ."
+        "./**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx}": [
+            "prettier -w ./app",
+            "prettier -w ./components",
+            "prettier -w ./utils",
+            "prettier -w ./content/**/*"
         ]
     }
 }
