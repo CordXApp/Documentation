@@ -1,0 +1,73 @@
+---
+title: Status
+description: Information about viewing our service status
+icon: ArrowBigUpIcon
+---
+
+We offer an api for checking our service status in a variety of different
+ways all of which will be explained and described here, however we should
+mention that some of our status endpoints may be limited or unavailable for
+public viewing as this was mainly made to control the new status page that will
+be coming with the release of v3 of our website!
+
+## Public Endpoints
+
+> https://api.cordx.lol/v3/status/summary
+
+### Example Response
+
+```json title="200 | OK"
+{
+    "page": {
+        "name": "CordX",
+        "url": "https://cordx.instatus.com",
+        "status": "UP"
+    }
+}
+```
+
+---
+
+## Private Endpoints
+
+### Component Filter
+
+> https://api.cordx.lol/v3/status/comp/filter/:secret?method=
+
+#### Required Props
+
+<TypeTable
+    type={{
+        ':secret': {
+            description: 'The request ":secret" query',
+            type: 'STRING',
+            typeDescription: 'Should be a valid string',
+            default: 'Available only to CordX Developers'
+        },
+        '?method': {
+            description: 'The request "?method" query',
+            type: 'STRING',
+            typeDescription: 'Should be a valid string matching one of the defaults',
+            default: 'One of: dns | sl | tp | us | web'
+        }
+    }}
+/>
+
+---
+
+### All Components
+
+> https://api.cordx.lol/v3/status/components/:secret
+
+#### Required Props
+
+<TypeTable
+    type={{
+        ':secret': {
+            description: 'The request ":secret" query',
+            type: 'STRING',
+            typeDescription: 'Should be a valid string',
+            default: 'Available only to CordX Developers'
+        }
+    }}
+/>

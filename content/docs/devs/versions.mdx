@@ -1,0 +1,89 @@
+---
+title: Versions
+description: Information about fetching the version(s) of all our services
+icon: GitBranchIcon
+---
+
+We offer a way for our users/developers to fetch information related to the
+current, newest and stable version of our website, api and discord client.
+
+---
+
+## Base Domain
+
+> https://api.cordx.lol/v3/system/check/versions
+
+---
+
+## Example Response
+
+```json title="200 | OK"
+{
+    "current": {
+        "api": "vX.X.X",
+        "client": "vX.X.X",
+        "website": "vX.X.X"
+    },
+    "newest": {
+        "api": "vX.X.X",
+        "client": "vX.X.X",
+        "website": "vX.X.X"
+    },
+    "stable": {
+        "api": "vX.X.X",
+        "client": "vX.X.X",
+        "website": "vX.X.X"
+    }
+}
+```
+
+## Example Usage
+
+> NOTE: these are not guaranteed to be working examples
+
+```js title="Javascript | node-fetch"
+const fetch = require('node-fetch')
+
+fetch('https://api.cordx.lol/v3/system/check/versions')
+    .then(res => res.json())
+    .then(data => {
+        console.log(`${data?.current?.api}`)
+        console.log(`${data?.current?.website}`)
+        console.log(`${data?.current?.client}`)
+
+        console.log(`${data?.newest?.api}`)
+        console.log(`${data?.newest?.website}`)
+        console.log(`${data?.newest?.client}`)
+
+        console.log(`${data?.stable?.api}`)
+        console.log(`${data?.stable?.website}`)
+        console.log(`${data?.stable?.client}`)
+    })
+    .catch(e => {
+        return console.log(`Request failed: ${e.stack}`)
+    })
+```
+
+---
+
+```python title="Python | requests"
+import requests
+
+url = "https://api.cordx.lol/v3/system/check/versions"
+
+response = requests.get(url)
+
+response_json = response.json()
+
+print(response_json.current.api)
+print(response_json.current.client)
+print(response_json.current.website)
+
+print(response_json.newest.api)
+print(response_json.newest.api)
+print(response_json.newest.api)
+
+print(response_json.stable.api)
+print(response_json.stable.api)
+print(response_json.stable.api)
+```

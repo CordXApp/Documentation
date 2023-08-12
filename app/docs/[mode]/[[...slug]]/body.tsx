@@ -5,10 +5,12 @@ import { ThemeSwitch } from '@/components/ThemeSwitch'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { Card, Cards, Heading, Image, Link, Table } from 'next-docs-ui/mdx'
+import { TypeTable } from 'next-docs-ui/components/type-table'
 
 const components = {
     Card,
     Cards,
+    TypeTable,
     a: Link,
     pre: Pre,
     img: Image,

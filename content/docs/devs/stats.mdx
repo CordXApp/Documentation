@@ -1,0 +1,66 @@
+---
+title: Statistics
+description: Information about viewing our website statistics
+icon: BarChart3Icon
+---
+
+We offer developers an easy to access method for fetching our
+websites statistics, these statistics include: total images stored,
+total registered users and total uploaded files (downloads).
+
+These statistics show no real purpose other then showing the world
+how our website is performing in terms of its user, image and download
+count. We strive for transparency and figured this would help us achieve it.
+
+---
+
+## Base Domain
+
+> https://api.cordx.lol/v3/system/stats
+
+---
+
+## Example Response
+
+```json title="200 | OK"
+{
+  "users": Number,
+  "images": Number,
+  "downloads": Number
+}
+```
+
+## Example Usage
+
+> NOTE: these are not guaranteed to be working examples
+
+```js title="Javascript | node-fetch"
+const fetch = require('node-fetch')
+
+fetch('https://api.cordx.lol/v3/system/stats')
+    .then(res => res.json())
+    .then(data => {
+        console.log(`Users: ${data?.users}`)
+        console.log(`Images: ${data?.images}`)
+        console.log(`Downloads: ${data?.downloads}`)
+    })
+    .catch(e => {
+        return console.log(`Request failed: ${e.stack}`)
+    })
+```
+
+---
+
+```python title="Python | requests"
+import requests
+
+url = "https://api.cordx.lol/v3/system/stats"
+
+response = requests.get(url)
+
+response_json = response.json()
+
+print(response_json.users)
+print(response_json.images)
+print(response_json.downloads)
+```

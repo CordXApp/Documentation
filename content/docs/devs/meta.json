@@ -1,4 +1,14 @@
 {
     "title": "Docs",
-    "pages": ["---Guide---", "index"]
+    "pages": [
+        "---Guide---",
+        "index",
+        "stats",
+        "versions",
+        "status",
+        "---Restful API---",
+        "restful/index",
+        "---Upload Server---",
+        "uploads/index"
+    ]
 }
