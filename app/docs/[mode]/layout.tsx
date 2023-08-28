@@ -3,15 +3,15 @@ import { getTree } from '@/utils/source'
 import { Code2Icon, SmileIcon } from 'lucide-react'
 import { DocsLayout } from 'next-docs-ui/layout'
 import type { ReactNode } from 'react'
-const { version } = require('../../../package.json')
+const { devs, users } = require('../../../versions/base.json')
 
 export default function Layout({ params, children }: { params: { mode: string }; children: ReactNode }) {
     const tree = getTree(params.mode)
 
     const [Icon, title, description] =
         params.mode === 'users'
-            ? [SmileIcon, `User Guides - v${version}`, 'Guides and information']
-            : [Code2Icon, `Dev Docs - v${version}`, 'API docs and usage guides']
+            ? [SmileIcon, `User Guides - v${users}`, 'Guides and information']
+            : [Code2Icon, `Dev Docs - v${devs}`, 'API docs and usage guides']
 
     return (
         <main
