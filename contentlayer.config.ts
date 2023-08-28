@@ -17,6 +17,6 @@ const config = createConfig({
 
 config.mdx!.remarkPlugins!.push(remarkMath)
 
-config.mdx!.remarkPlugins!.push(remarkDynamicContent)
+config.mdx!.remarkPlugins!.push(remarkDynamicContent())
 config.mdx!.rehypePlugins!.push(rehypeKatex)
 export default makeSource(config)
