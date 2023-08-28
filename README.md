@@ -1,4 +1,5 @@
 # CordX Documentation
+[![CodeQL](https://github.com/CordXApp/Documentation/actions/workflows/codeql.yml/badge.svg)](https://github.com/CordXApp/Documentation/actions/workflows/codeql.yml)
 
 Our updated documentation website.
 
