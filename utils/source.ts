@@ -22,7 +22,7 @@ const headlessTree = buildPageTree(ctx, {
 })
 
 export function getTree(mode: 'users' | 'devs' | string): PageTree {
-    if (mode === 'ui') {
+    if (mode === 'users') {
         return uiTree
     }
 
