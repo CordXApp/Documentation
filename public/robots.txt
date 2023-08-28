@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://help.cordx.lol
+
+# Sitemaps
+Sitemap: https://help.cordx.lol/sitemap.xml
