@@ -1,0 +1,51 @@
+---
+title: Discord User
+description: Documentation regarding fetching a users discord information.
+icon: UserIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+Generates a basic response includes user id, global name, display name etc,
+we use this api only for fetching information that is publicly available
+through the discord api.
+
+---
+
+## Required parameters
+
+<TypeTable
+    type={{
+        userId: {
+            description: 'Discord id of the user to fetch information for',
+            type: 'STRING'
+        }
+    }}
+/>
+
+---
+
+## Example usage
+
+> **Base URL**: `https://api.cordx.lol/v3/users/fetch/:userId`
+
+```js title="Example Request"
+const fetch = require('node-fetch');
+
+await fetch('https://api.cordx.lol/v3/users/fetch/510065483693817867')
+.then((res) res.json())
+.then((u) => {
+    await console.log(`${u.id} | ${u.globalName} | ${u.displayName} | ${u.username}`)
+}).catch((e) => console.log(e.stack));
+```
+
+<br />
+
+```js title="Example Response"
+{
+  "id": "510065483693817867",
+  "globalName": "Toxic Dev",
+  "displayName": "Toxic Dev",
+  "userName": "therealtoxicdev"
+}
+```

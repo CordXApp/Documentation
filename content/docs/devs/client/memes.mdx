@@ -1,0 +1,95 @@
+---
+title: Memes
+description: Information regarding our meme generator api.
+icon: LaughIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+This is a simple api we use for generating memes from the
+subreddit api into our discord bot. We decided to open it up
+to the public, enjoy xD
+
+---
+
+## Available endpoints
+
+-   Random Memes: `https://api.cordx.lol/v3/client/memes`
+-   Dank Memes: `https://api.cordx.lol/v3/client/memes/dank`
+-   Danker Memes: `https://api.cordx.lol/v3/client/memes/danker`
+-   Prequel Memes: `https://api.cordx.lol/v3/client/memes/prequel`
+-   Facebook Memes: `https://api.cordx.lol/v3/client/memes/facebook`
+-   Wholesome Memes: `https://api.cordx.lol/v3/client/memes/wholesome`
+-   Deepfried Memes: `https://api.cordx.lol/v3/client/memes/deepfried`
+-   Surreal Memes: `https://api.cordx.lol/v3/client/memes/surreal`
+-   Funny Memes: `https://api.cordx.lol/v3/client/memes/funny`
+-   More Random: `https://api.cordx.lol/v3/client/memes/last`
+-   Economy Memes: `https://api.cordx.lol/v3/client/memes/economy`
+-   Cat Memes: `https://api.cordx.lol/v3/client/memes/cats`
+-   Dog Memes: `https://api.cordx.lol/v3/client/memes/dogs`
+
+## Response parameters
+
+<TypeTable
+    type={{
+        title: {
+            description: 'The title of the meme',
+            type: 'STRING'
+        },
+        image: {
+            description: 'The meme/image url',
+            type: 'STRING'
+        },
+        link: {
+            description: 'Link to the original post',
+            type: 'STRING'
+        },
+        author: {
+            description: 'Name of the post author',
+            type: 'STRING'
+        },
+        upvotes: {
+            description: 'Amount of upvotes the post has',
+            type: 'STRING'
+        },
+        comments: {
+            description: 'Amount of comments the post has',
+            type: 'STRING'
+        },
+        nsfw: {
+            description: 'If the post contains nsfw content',
+            type: 'STRING'
+        }
+    }}
+/>
+
+---
+
+## Example usage
+
+```js title="Example Request"
+const fetch = require('node-fetch');
+
+await fetch('https://api.cordx.lol/v3/client/memes')
+.then((res) res.json())
+.then((meme) => {
+
+    await console.log(`${meme.title} | ${meme.author} | ${meme.url}`)
+
+
+}).catch((e) => console.log(e.stack));
+```
+
+<br />
+
+```js title="Example Response"
+{
+  "title": "Something bad always happens",
+  "image": "https://i.redd.it/lx3x50caskkb1.jpg",
+  "link": "https://reddit.com/r/memes",
+  "author": "thedamned234",
+  "upvotes": 165,
+  "comments": 2,
+  "nsfw": false
+}
+```

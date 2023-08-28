@@ -29,7 +29,7 @@ export function Nav() {
                         href="/docs/devs"
                         className={cn(
                             'px-2 py-1 rounded-md text-muted-foreground transition-colors hover:text-accent-foreground',
-                            mode === 'devs' && 'bg-accent text-accent-foreground'
+                            mode === 'headless' && 'bg-accent text-accent-foreground'
                         )}
                     >
                         Devs
@@ -38,7 +38,7 @@ export function Nav() {
                         href="/docs/users"
                         className={cn(
                             'px-2 py-1 rounded-md text-muted-foreground transition-colors hover:text-accent-foreground',
-                            mode === 'users' && 'bg-accent text-accent-foreground'
+                            mode === 'ui' && 'bg-accent text-accent-foreground'
                         )}
                     >
                         Users

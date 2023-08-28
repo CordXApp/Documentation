@@ -54,7 +54,7 @@ const neturalTheme = `
     --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
 
-    --border: 0 0% 14.9%;
+    --border: 0 0% 18%;
     --input: 0 0% 14.9%;
 
     --primary: 0 0% 98%;
@@ -78,7 +78,6 @@ const fullLayoutTheme = `
 }
 
 main > div:nth-of-type(2) > aside:nth-child(1) {
-  top: 0;
   height: 100vh;
   border-right-width: 1px;
 }
@@ -88,14 +87,7 @@ main > div:nth-of-type(2) > div:nth-child(3) {
 }
 
 main > div:nth-of-type(2) > div:nth-child(3) > div {
-  top: 0;
   max-height: 100vh;
-}
-
-@media (min-width: 1024px) {
-  nav {
-    display: none;
-  }
 }
 
 article {
@@ -109,25 +101,9 @@ article > div:first-of-type {
 }
 `
 
-const hideSidebarTheme = `
-@media (min-width: 1024px) {
-  main > div:nth-child(2) > aside:nth-child(1) {
-    width: 0px;
-    padding-left: 0;
-    padding-right: 0;
-    overflow: hidden;
-    transition-property: width padding opacity;
-    transition-duration: 0.5s;
-    opacity: 0;
-    white-space: pre;
-  }
-}
-`
-
 export function ThemeSwitch() {
     const [netural, setNetural] = useState(false)
     const [fullLayout, setFullLayout] = useState(false)
-    const [hideSidebar, setHideSidebar] = useState(false)
 
     return (
         <div className="flex flex-row gap-3 flex-wrap">
@@ -137,12 +113,8 @@ export function ThemeSwitch() {
             <Button variant="secondary" onClick={() => setFullLayout(prev => !prev)}>
                 Toggle Full Layout
             </Button>
-            <Button variant="secondary" onClick={() => setHideSidebar(prev => !prev)}>
-                Toggle Sidebar
-            </Button>
             {netural && <style>{neturalTheme}</style>}
             {fullLayout && <style>{fullLayoutTheme}</style>}
-            {hideSidebar && <style>{hideSidebarTheme}</style>}
         </div>
     )
 }

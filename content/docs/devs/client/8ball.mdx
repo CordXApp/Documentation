@@ -1,0 +1,47 @@
+---
+title: 8Ball
+description: Information regarding our 8ball api.
+icon: AwardIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+This is a pretty basic 8ball response generator that we also use in our
+discord bot, you send it a request and it will spit out a random answer.
+
+---
+
+## Response parameters
+
+<TypeTable
+    type={{
+        response: {
+            description: 'The generated response',
+            type: 'STRING'
+        }
+    }}
+/>
+
+---
+
+## Example usage
+
+> **Base URL**: `https://api.cordx.lol/v3/client/8ball`
+
+```js title="Example Request"
+const fetch = require('node-fetch');
+
+await fetch('https://api.cordx.lol/v3/client/8ball')
+.then((res) res.json())
+.then((r) => {
+    await console.log(`${r.response}`)
+}).catch((e) => console.log(e.stack));
+```
+
+<br />
+
+```js title="Example Response"
+{
+  "response": "Outlook not so good."
+}
+```

@@ -1,0 +1,202 @@
+---
+title: Cordx User
+description: Documentation regarding fetching a users uploads/images.
+icon: UserCogIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+Generates a response containing either a list of all the provided
+users images/uploads or the users upload statistics.
+
+---
+
+## Upload Stats
+
+Fetch the provided users upload statistics (image count etc)
+
+### Required parameters
+
+<TypeTable
+    type={{
+        userId: {
+            description: 'Discord id of the user to fetch stats for',
+            type: 'STRING'
+        }
+    }}
+/>
+
+### Example usage
+
+> **Base URL**: `https://api.cordx.lol/v3/users/:userId/stats`
+
+```js title="Example Request"
+const fetch = require('node-fetch');
+
+await fetch('https://api.cordx.lol/v3/users/510065483693817867/stats')
+.then((res) res.json())
+.then((u) => {
+    await console.log(`${u.storage.used}`)
+}).catch((e) => console.log(e.stack));
+```
+
+<br />
+
+```js title="Example Response"
+{
+  "storage": {
+    "used": "509 bytes",
+    "remains": "unlimited"
+  },
+  "files": {
+    "images": 382,
+    "downloads": 10,
+    "png": 355,
+    "gif": 1,
+    "mp4": 19,
+    "other": 7
+  }
+}
+```
+
+---
+
+## User uploads
+
+Fetch a list of all the provided users uploads (you may have to filter by file type)
+
+> **NOTE:** This endpoint is used to display the users uploads on their profile in our website as such it is limited to 9 images per request.
+> we will update it in the future or create a new endpoint that returns the entire list.
+
+### Required parameters
+
+<TypeTable
+    type={{
+        userId: {
+            description: 'Discord id of the user to fetch stats for',
+            type: 'STRING'
+        }
+    }}
+/>
+
+### Example usage
+
+> **Base URL**: `https://api.cordx.lol/v3/users/:userId/images/all`
+
+```js title="Example Request"
+const fetch = require('node-fetch');
+
+await fetch('https://api.cordx.lol/v3/users/510065483693817867/images/all')
+.then((res) res.json())
+.then((r) => {
+    await console.log(`${r.images.map((i) => i.Size)}`)
+}).catch((e) => console.log(e.stack));
+```
+
+<br />
+
+```js title="Example Response"
+{
+  "images": [
+    {
+      "Key": "510065483693817867/E3DOOPMT.png",
+      "LastModified": "2023-08-26T21:25:51.248Z",
+      "ETag": "\"672cd357331f7df669c978e032d46e8d\"",
+      "Size": 168478,
+      "StorageClass": "STANDARD",
+      "Owner": {
+        "DisplayName": "10837067",
+        "ID": "10837067"
+      }
+    },
+    {
+      "Key": "510065483693817867/EF85wZPB.png",
+      "LastModified": "2023-08-26T21:25:52.196Z",
+      "ETag": "\"c07414b6da66bf0031c240f67778ed52\"",
+      "Size": 138370,
+      "StorageClass": "STANDARD",
+      "Owner": {
+        "DisplayName": "10837067",
+        "ID": "10837067"
+      }
+    },
+    {
+      "Key": "510065483693817867/EKJdw6Dp.png",
+      "LastModified": "2023-08-26T21:25:52.191Z",
+      "ETag": "\"4246a1e5892e804d52069fc40408cb5a\"",
+      "Size": 143883,
+      "StorageClass": "STANDARD",
+      "Owner": {
+        "DisplayName": "10837067",
+        "ID": "10837067"
+      }
+    },
+    {
+      "Key": "510065483693817867/ENRPXAHF.png",
+      "LastModified": "2023-08-26T21:25:52.111Z",
+      "ETag": "\"5ab7456219757e7af4ea3f0fe59a0950\"",
+      "Size": 63885,
+      "StorageClass": "STANDARD",
+      "Owner": {
+        "DisplayName": "10837067",
+        "ID": "10837067"
+      }
+    },
+    {
+      "Key": "510065483693817867/EfZHczXi.png",
+      "LastModified": "2023-08-26T21:25:52.241Z",
+      "ETag": "\"1acef6939067a534d00a69bc16935d60\"",
+      "Size": 140949,
+      "StorageClass": "STANDARD",
+      "Owner": {
+        "DisplayName": "10837067",
+        "ID": "10837067"
+      }
+    },
+    {
+      "Key": "510065483693817867/EwZ1FMJA.png",
+      "LastModified": "2023-08-26T21:25:52.260Z",
+      "ETag": "\"8ae9800d949088bec3589987515bc10f\"",
+      "Size": 39991,
+      "StorageClass": "STANDARD",
+      "Owner": {
+        "DisplayName": "10837067",
+        "ID": "10837067"
+      }
+    },
+    {
+      "Key": "510065483693817867/FHH6v53w.png",
+      "LastModified": "2023-08-26T21:25:54.431Z",
+      "ETag": "\"00c76a88fe172b186040135cba81d9f9\"",
+      "Size": 130730,
+      "StorageClass": "STANDARD",
+      "Owner": {
+        "DisplayName": "10837067",
+        "ID": "10837067"
+      }
+    },
+    {
+      "Key": "510065483693817867/FKtgdKBE.png",
+      "LastModified": "2023-08-26T08:52:28.421Z",
+      "ETag": "\"2d3dc88d85eb5321304d1070799223a0\"",
+      "Size": 135981,
+      "StorageClass": "STANDARD",
+      "Owner": {
+        "DisplayName": "10837067",
+        "ID": "10837067"
+      }
+    },
+    {
+      "Key": "510065483693817867/FXZ92Uf8.png",
+      "LastModified": "2023-08-26T21:25:55.253Z",
+      "ETag": "\"4c1b4ab1e661ded3ecff4219f8db40b6\"",
+      "Size": 105069,
+      "StorageClass": "STANDARD",
+      "Owner": {
+        "DisplayName": "10837067",
+        "ID": "10837067"
+      }
+    }
+  ]
+}
+```

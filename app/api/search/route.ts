@@ -1,10 +1,15 @@
+import { getPageUrl } from '@/utils/source'
 import { allDocs } from 'contentlayer/generated'
-import { initSearchAPI } from 'next-docs-zeta/server'
+import { createSearchAPI } from 'next-docs-zeta/server'
 
-export const { GET } = initSearchAPI(
-    allDocs.map(docs => ({
+export const { GET } = createSearchAPI('advanced', {
+    indexes: allDocs.map(docs => ({
+        id: docs._id,
         title: docs.title,
         content: docs.body.raw,
-        url: '/docs/' + docs.slug
-    }))
-)
+        url: getPageUrl(docs.slug),
+        structuredData: docs.structuredData,
+        tag: docs._raw.flattenedPath.startsWith('docs/users') ? 'users' : 'devs'
+    })),
+    tag: true
+})

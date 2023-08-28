@@ -3,12 +3,24 @@
     "pages": [
         "---Guide---",
         "index",
-        "stats",
-        "versions",
-        "status",
-        "---Restful API---",
-        "restful/index",
-        "---Upload Server---",
-        "uploads/index"
+        "---Client---",
+        "client/index",
+        "client/8ball",
+        "client/advice",
+        "client/facts",
+        "client/memes",
+        "client/yomomma",
+        "---System---",
+        "system/stats",
+        "system/status",
+        "system/versions",
+        "---Users---",
+        "users/index",
+        "users/cordx",
+        "users/discord",
+        "---Uploads---",
+        "uploads/index",
+        "uploads/requests",
+        "uploads/responses"
     ]
 }

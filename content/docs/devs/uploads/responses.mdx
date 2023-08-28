@@ -1,0 +1,115 @@
+---
+title: Responses
+description: Some basics about the responses you can expect from our upload server.
+icon: HardDriveDownloadIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+Our upload will return a variety of response based on the provided
+headers and parameters for the request. for example if you provide
+a invalid secret the server will respond with a invalid secret message.
+
+---
+
+## Expected responses
+
+### 200
+
+<TypeTable
+    type={{
+        '200': {
+            description: 'Request was successful',
+            type: 'STRING',
+            default: 'OK'
+        }
+    }}
+/>
+
+```js title="200 - OK"
+{
+    status: 'OK',
+    errormsg: '',
+    url: `URL_TO_YOUR_IMAGE`
+}
+```
+
+### 500
+
+<TypeTable
+    type={{
+        '500': {
+            description: 'An error occurred while processing your request',
+            type: 'STRING',
+            default: 'client aborted the request'
+        }
+    }}
+/>
+
+```js title="500 - Default/Abort"
+{
+    status: 'UPLOAD_ERROR',
+    errormsg: 'client aborted the request',
+    url: '[CORDX]: aborted'
+}
+```
+
+<br />
+
+```js title="500 - Internal Error"
+{
+    status: 'UPLOAD_ERROR',
+    errormsg: 'some error message here (it will be detailed and explain the issue)',
+    url: ''
+}
+```
+
+### 400
+
+<TypeTable
+    type={{
+        '400': {
+            description: 'Bad request',
+            type: 'STRING',
+            default: 'none'
+        }
+    }}
+/>
+
+```js title="400 - No secret"
+{
+    status: 'NO_SECRET_HEADER',
+    errormsg: 'No secret provided in header params',
+    url: '[CORDX]: unable to locate secret'
+}
+```
+
+<br />
+
+```js title="400 - No userid"
+{
+    status: 'NO_USERID_HEADER',
+    errormsg: 'No userid provided in header params',
+    url: '[CORDX]: unable to locate userid'
+}
+```
+
+<br />
+
+```js title="400 - No post data"
+{
+    status: 'NO_POST_DATA',
+    errormsg: 'No valid uploads provided',
+    url: '[CORDX]: No post data received'
+}
+```
+
+<br />
+
+```js title="400 - File size limit"
+{
+    status: 'FILE_SIZE_LIMITED',
+    errormsg: 'Whoops, looks like you have hit your file size limit. We currently limit uploads to `50M`',
+    url: '[CORDX]: file size limited'
+}
+```

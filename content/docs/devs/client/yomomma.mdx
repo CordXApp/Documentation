@@ -1,0 +1,44 @@
+---
+title: YoMomma
+description: Information regarding our yo momma jokes api.
+icon: LaughIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+## Returns a response containing a random yo momma joke.
+
+## Response parameters
+
+<TypeTable
+    type={{
+        joke: {
+            description: 'The generated response',
+            type: 'STRING'
+        }
+    }}
+/>
+
+---
+
+## Example usage
+
+> **Base URL**: `https://api.cordx.lol/v3/client/yomomma`
+
+```js title="Example Request"
+const fetch = require('node-fetch');
+
+await fetch('https://api.cordx.lol/v3/client/yomomma')
+.then((res) res.json())
+.then((r) => {
+    await console.log(`${r.joke}`)
+}).catch((e) => console.log(e.stack));
+```
+
+<br />
+
+```js title="Example Response"
+{
+  "joke": "Yo mama is so fat that she looked up cheat codes for Wii Fit"
+}
+```

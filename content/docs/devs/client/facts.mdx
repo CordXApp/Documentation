@@ -1,0 +1,49 @@
+---
+title: Facts
+description: Information regarding our facts api.
+icon: MessageCircleIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+## Returns a response containing a random fact with a url to the source.
+
+## Response parameters
+
+<TypeTable
+    type={{
+        fact: {
+            description: 'The generated response',
+            type: 'STRING'
+        },
+        source: {
+            description: 'The source of the fact',
+            type: 'ABSOLUTE_URL'
+        }
+    }}
+/>
+
+---
+
+## Example usage
+
+> **Base URL**: `https://api.cordx.lol/v3/client/facts/random`
+
+```js title="Example Request"
+const fetch = require('node-fetch');
+
+await fetch('https://api.cordx.lol/v3/client/facts/random')
+.then((res) res.json())
+.then((r) => {
+    await console.log(`${r.fact} | ${r.source}`)
+}).catch((e) => console.log(e.stack));
+```
+
+<br />
+
+```js title="Example Response"
+{
+  "fact": "It was discovered on a space mission that a frog can throw up. The frog throws up its stomach first, so the stomach is dangling out of its mouth. Then the frog uses its forearms to dig out all of the stomach's contents and then swallows the stomach back down.",
+  "source": "https://www.djtech.net/humor/useless_facts.htm"
+}
+```

@@ -25,6 +25,13 @@
             }
         ]
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".contentlayer/generated"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        ".contentlayer/generated",
+        "components/ui/header.jsx"
+    ],
     "exclude": ["node_modules"]
 }

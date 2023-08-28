@@ -1,0 +1,72 @@
+---
+title: Requests
+description: Some basics about sending requests to our upload server.
+icon: HardDriveUploadIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+Our upload server is used to send `POST` requests containing files uploaded through
+sharex to our website, database and bucket/cdn. You can interact with it outside of
+sharex so long as you have basic knowledge regarding using a restful api!
+
+---
+
+## Base URL
+
+> `https://beta.cordx.lol/api/upload/sharex`
+
+---
+
+## Note
+
+-   Your `userid` and `secret` can be obtained in your `/me/config` page on our website
+    or by using our [discord bot](https://discord.com/api/oauth2/authorize?client_id=829634899748716546&permissions=49450776919873&scope=bot%20applications.commands)
+
+-   Uploaded files are currently limited to a max size of `50MB`
+
+## Required headers
+
+<TypeTable
+    type={{
+        userid: {
+            description: 'The header containing the request users id',
+            type: 'STRING'
+        },
+        secret: {
+            description: 'The cordx secret belonging to the request user',
+            type: 'STRING'
+        }
+    }}
+/>
+
+---
+
+## Example request
+
+```js title="Javascript Example"
+const fetch = require('node-fetch');
+const fs = require('fs');
+
+const stats = fs.statSync("YOUR_FILE.png");
+const fileSizeInBytes = stats.size;
+let readStream = fs.createReadStream('YOUR_FILE.png');
+
+const customHeaders = {
+    "Content-Length": fileSizeInBytes,
+    "Content-Type": "image/png",
+    "userid": "YOUR_USER_ID",
+    "secret": "YOUR_CORDX_SECRET",
+}
+
+await fetch('beta.cordx.lol/api/upload/sharex', {
+    method: 'POST',
+    headers: customHeaders,
+    body: readStream
+}).then(async function(res) => {
+
+    await console.log(res.json());
+    return res.json();
+}).catch((e) => console.log(e.stack));
+
+```

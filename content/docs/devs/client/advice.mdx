@@ -1,0 +1,46 @@
+---
+title: Advice
+description: Information regarding our advice api.
+icon: MessageCircleIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+Returns a response containing a random piece of advice that may or may not be useful
+
+---
+
+## Response parameters
+
+<TypeTable
+    type={{
+        advice: {
+            description: 'The generated response',
+            type: 'STRING'
+        }
+    }}
+/>
+
+---
+
+## Example usage
+
+> **Base URL**: `https://api.cordx.lol/v3/client/advice/random`
+
+```js title="Example Request"
+const fetch = require('node-fetch');
+
+await fetch('https://api.cordx.lol/v3/client/advice/random')
+.then((res) res.json())
+.then((r) => {
+    await console.log(`${r.advice}`)
+}).catch((e) => console.log(e.stack));
+```
+
+<br />
+
+```js title="Example Response"
+{
+  "advice": "If you cannot unscrew the lid of a jar, try placing a rubber band around its circumference for extra grip."
+}
+```
