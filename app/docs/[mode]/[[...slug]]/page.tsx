@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: Param }) {
     const toc = await getTableOfContents(page.body.raw)
     const url = getPageUrl(page.slug)
     const neighbours = findNeighbour(tree, url)
-    const time = await getGitLastEditTime('SonMooSans/next-docs', 'apps/docs/content/' + page._raw.sourceFilePath)
+    const time = await getGitLastEditTime('CordXApp/Documentation', 'app/docs/content/' + page._raw.sourceFilePath)
 
     return (
         <DocsPage
