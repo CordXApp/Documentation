@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
 
-const allowed = ['users', 'devs']
+const allowed = ['users', 'devs', 'npm']
 
 export default function middleware(req: NextRequest) {
     const pathname = req.nextUrl.pathname

@@ -1,0 +1,56 @@
+---
+title: Getting Started
+description: Installing and setting up the module
+icon: BookIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+import { Tab, Tabs } from 'next-docs-ui/components/tabs'
+
+---
+
+<Tabs items={['Install', 'Imports', 'Constructor']}>
+
+{' '}
+
+<Tab value="Install">
+    ```js title="NPM" npm install @cordxapp/pastes ```
+    <br />
+    ```js title="YARN" yarn install @cordxapp/pastes ```
+</Tab>
+
+{' '}
+
+<Tab value="Imports">
+    ```js title="Commonjs" const {PasteClient} = require('@cordxapp/pastes'); ```
+    <br />
+    ```js title="ES6" import {PasteClient} from '@cordxapp/pastes'; ```
+</Tab>
+
+  <Tab value="Constructor">
+      <TypeTable
+        type={{
+          PasteClient: {
+            description: 'Your cordx paste bin client',
+            type: 'constructor',
+            default: 'PasteClient()'
+           }
+        }}
+      />
+
+      ## Usage
+
+      ```js title="Commonjs"
+      const { PasteClient } = require('@cordxapp/pastes');
+
+      const pastes = new PasteClient();
+      ```
+      <br />
+      ```js title="ES6"
+      import { PasteClient } from '@cordxapp/pastes';
+
+      const pastes = new PasteClient();
+      ```
+
+  </Tab>
+</Tabs>

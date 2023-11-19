@@ -9,7 +9,7 @@ export const { GET } = createSearchAPI('advanced', {
         content: docs.body.raw,
         url: getPageUrl(docs.slug),
         structuredData: docs.structuredData,
-        tag: docs._raw.flattenedPath.startsWith('docs/users') ? 'users' : 'devs'
+        tag: docs._raw.flattenedPath.startsWith('docs/users') ? 'users' : 'devs' || 'npm'
     })),
     tag: true
 })

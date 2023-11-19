@@ -1,0 +1,56 @@
+---
+title: Getting Started
+description: Installing and setting up the module
+icon: BookIcon
+---
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+import { Tab, Tabs } from 'next-docs-ui/components/tabs'
+
+---
+
+<Tabs items={['Install', 'Imports', 'Constructor']}>
+
+{' '}
+
+<Tab value="Install">
+    ```js title="NPM" npm install @cordxapp/request ```
+    <br />
+    ```js title="YARN" yarn install @cordxapp/request ```
+</Tab>
+
+{' '}
+
+<Tab value="Imports">
+    ```js title="Commonjs" const {RequestClient} = require('@cordxapp/request'); ```
+    <br />
+    ```js title="ES6" import {RequestClient} from '@cordxapp/request'; ```
+</Tab>
+
+  <Tab value="Constructor">
+      <TypeTable
+        type={{
+          RequestClient : {
+            description: 'Your cordx request client',
+            type: 'constructor',
+            default: 'RequestClient ()'
+           }
+        }}
+      />
+
+      ## Usage
+
+      ```js title="Commonjs"
+      const { RequestClient  } = require('@cordxapp/request');
+
+      const { get } = new RequestClient();
+      ```
+      <br />
+      ```js title="ES6"
+      import { RequestClient } from '@cordxapp/request';
+
+      const { get } = new RequestClient();
+      ```
+
+  </Tab>
+</Tabs>

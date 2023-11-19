@@ -1,23 +1,31 @@
 import { cn } from '@/utils/cn'
 import { getTree } from '@/utils/source'
-import { Code2Icon, SmileIcon } from 'lucide-react'
+import { Code2Icon, SmileIcon, WorkflowIcon } from 'lucide-react'
 import { DocsLayout } from 'next-docs-ui/layout'
 import type { ReactNode } from 'react'
-const { devs, users } = require('../../../versions/base.json')
+const { devs, users, npm } = require('../../../versions/base.json')
 
 export default function Layout({ params, children }: { params: { mode: string }; children: ReactNode }) {
     const tree = getTree(params.mode)
 
-    const [Icon, title, description] =
-        params.mode === 'users'
-            ? [SmileIcon, `User Guides - v${users}`, 'Guides and information']
-            : [Code2Icon, `Dev Docs - v${devs}`, 'API docs and usage guides']
+    let Icon
+    let title
+    let description
+
+    if (params.mode === 'users')
+        [Icon, title, description] = [SmileIcon, `User Guides - v${users}`, 'Guides and information']
+    else if (params.mode === 'devs')
+        [Icon, title, description] = [Code2Icon, `Dev Docs - v${devs}`, 'API docs and usage guides']
+    else if (params.mode === 'npm')
+        [Icon, title, description] = [WorkflowIcon, `NPM Docs - v${npm}`, 'Documentation for our npm modules']
+    else [Icon] = [WorkflowIcon]
 
     return (
         <main
             className={cn(
                 params.mode === 'users' && '[--primary:213_94%_68%]',
-                params.mode === 'devs' && '[--primary:270_95%_75%]'
+                params.mode === 'devs' && '[--primary:270_95%_75%]',
+                params.mode === 'npm' && '[--primary:700_94%_68%]'
             )}
         >
             <div id="docs-gradient" className="absolute right-0 top-0 overflow-hidden z-[-1] sm:right-[20vw]">
@@ -49,6 +57,9 @@ export function generateStaticParams() {
         },
         {
             mode: 'devs'
+        },
+        {
+            mode: 'npm'
         }
     ]
 }

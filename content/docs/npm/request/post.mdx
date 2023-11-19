@@ -1,0 +1,68 @@
+---
+title: Post Request
+description: Send a post request to a location of choice
+icon: WorkflowIcon
+---
+
+import { Tab, Tabs } from 'next-docs-ui/components/tabs'
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+<Tabs items={['Commonjs', 'ES6']}>
+
+  <Tab value="Commonjs">
+
+      <TypeTable
+        type={{
+          url: {
+            description: 'The url you want to send a request to',
+            type: 'string',
+            default: 'none'
+          },
+          body: {
+            description: 'The content/body of the post request',
+            type: 'string',
+            default: 'none'
+          }
+        }}
+      />
+
+      ```js
+      const { RequestClient } = require('@cordxapp/request');
+      const req = new RequestClient();
+
+      return req.post({
+        url: url,
+        body: body
+      });
+      ```
+
+  </Tab>
+  <Tab value="ES6">
+
+      <TypeTable
+        type={{
+          url: {
+            description: 'The url you want to send a request to',
+            type: 'string',
+            default: 'none'
+          },
+          body: {
+            description: 'The content/body of the post request',
+            type: 'string',
+            default: 'none'
+          }
+        }}
+      />
+
+      ```js
+      import { RequestClient } from '@cordxapp/request';
+      const req = new RequestClient();
+
+      return req.post({
+        url: url,
+        body: body
+        });
+      ```
+
+  </Tab>
+</Tabs>

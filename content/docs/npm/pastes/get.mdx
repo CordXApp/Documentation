@@ -1,0 +1,45 @@
+---
+title: Get Paste
+description: Fetching a paste from our paste bin
+icon: WorkflowIcon
+---
+
+import { Tab, Tabs } from 'next-docs-ui/components/tabs'
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+<Tabs items={['Common']}>
+
+  <Tab value="Common">
+
+      <TypeTable
+        type={{
+          key: {
+            description: 'The string that was provided to you when you completed the upload',
+            type: 'string',
+              default: 'none'
+          }
+        }}
+      />
+
+      ```js title="ES6"
+      import { PasteClient } from '@cordxapp/pastes';
+
+      const paste = new PasteClient();
+
+      let res = await paste.get(key)
+
+      return console.log(res)
+      ```
+      <br />
+      ```js title="Commonjs"
+      const { PasteClient } = require('@cordxapp/pastes');
+
+      const paste = new PasteClient();
+
+      let res = await paste.get(key)
+
+      return console.log(res)
+      ```
+
+  </Tab>
+</Tabs>

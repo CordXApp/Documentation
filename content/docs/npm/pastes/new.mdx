@@ -1,0 +1,88 @@
+---
+title: New Paste
+description: Uploading a paste to our paste bin
+icon: WorkflowIcon
+---
+
+import { Tab, Tabs } from 'next-docs-ui/components/tabs'
+
+<Tabs items={['Common', 'Emitter']}>
+
+  <Tab value="Common">
+      ```js title="ES6"
+      import { PasteClient } from '@cordxapp/pastes';
+
+      const paster = new PasteClient();
+
+      await paster.post('Some text here')
+      .then((r) => console.log(r))
+      .catch((e) => console.log(e.stack))
+      ```
+      <br />
+      ```js title="Commonjs"
+      const { PasteClient } = require('@cordxapp/pastes');
+
+      const paster = new PasteClient();
+
+      await paster.post('Some text here')
+      .then((r) => console.log(r))
+      .catch((e) => console.log(e.stack))
+      ```
+
+  </Tab>
+
+  <Tab value="Emitter">
+      ```js title="ES6"
+      import { PasteClient } from '@cordxapp/pastes';
+
+      const paster = new PasteClient();
+
+      paster.on('post', async () => {
+        let res = await poster.post('Some text or code here');
+
+        /**
+        * Do something with the response
+        */
+        console.log('Paste key:' + res.key) // The key used for viewing your paste/post
+      })
+
+      /**
+      * THIS IS NOT NEEDED
+      */
+      paster.once('post', () => {
+        console.log('Post successful')
+      });
+
+      paster.on('error', (e) => {
+        return console.log(e.stack);
+      })
+      ```
+      <br />
+      ```js title="Commonjs"
+      const { PasteClient } = require('@cordxapp/pastes');
+
+      const paster = new PasteClient();
+
+      paster.on('post', async () => {
+        let res = await poster.post('Some text or code here');
+
+        /**
+        * Do something with the response
+        */
+        console.log('Paste key:' + res.key) // The key used for viewing your paste/post
+      })
+
+      /**
+      * THIS IS NOT NEEDED
+      */
+      paster.once('post', () => {
+        console.log('Post successful')
+      });
+
+      paster.on('error', (e) => {
+        return console.log(e.stack);
+      })
+      ```
+
+  </Tab>
+</Tabs>

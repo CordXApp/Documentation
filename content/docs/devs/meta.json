@@ -12,7 +12,6 @@
         "client/yomomma",
         "---Libraries---",
         "libraries/index",
-        "libraries/javascript",
         "---System---",
         "system/stats",
         "system/status",

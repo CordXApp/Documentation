@@ -14,7 +14,8 @@ export function Provider({ children }: { children: ReactNode }) {
                 links: [
                     ['Home', '/'],
                     ['User Docs', '/docs/users'],
-                    ['Developer Docs', '/docs/devs']
+                    ['Developer Docs', '/docs/devs'],
+                    ['NPM Docs', '/docs/npm']
                 ]
             }}
         >

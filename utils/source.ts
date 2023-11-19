@@ -21,11 +21,14 @@ const headlessTree = buildPageTree(ctx, {
     root: 'docs/devs'
 })
 
-export function getTree(mode: 'users' | 'devs' | string): PageTree {
-    if (mode === 'users') {
-        return uiTree
-    }
+const npmTree = buildPageTree(ctx, {
+    root: 'docs/npm'
+})
 
+export function getTree(mode: 'users' | 'devs' | 'npm' | string): PageTree {
+    if (mode === 'users') return uiTree
+    else if (mode === 'devs') return headlessTree
+    else if (mode === 'npm') return npmTree
     return headlessTree
 }
 

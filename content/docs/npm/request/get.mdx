@@ -1,0 +1,56 @@
+---
+title: Get Request
+description: Send a get request to a location of choice
+icon: WorkflowIcon
+---
+
+import { Tab, Tabs } from 'next-docs-ui/components/tabs'
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+<Tabs items={['Commonjs', 'ES6']}>
+
+  <Tab value="Commonjs">
+
+      <TypeTable
+        type={{
+          url: {
+            description: 'The url you want to send a request to',
+            type: 'string',
+            default: 'none'
+          }
+        }}
+      />
+
+      ```js
+      const { RequestClient } = require('@cordxapp/request');
+      const { get } = new RequestClient();
+
+      const response = await get(url);
+
+      return console.log(response.message);
+      ```
+
+  </Tab>
+  <Tab value="ES6">
+
+      <TypeTable
+        type={{
+          url: {
+            description: 'The url you want to send a request to',
+            type: 'string',
+            default: 'none'
+          }
+        }}
+      />
+
+      ```js
+      import { RequestClient } from '@cordxapp/request';
+      const req = new RequestClient();
+
+      const response = await req.get('https://api.cordx.lol');
+
+      return console.log(response.message);
+      ```
+
+  </Tab>
+</Tabs>
