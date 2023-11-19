@@ -5,7 +5,7 @@ import { ExternalLinkIcon } from 'lucide-react'
 import type { Metadata } from 'next'
 import { MDXContent } from 'next-docs-ui/mdx'
 import { DocsPage } from 'next-docs-ui/page'
-import { findNeighbour, getGitLastEditTime, getTableOfContents } from 'next-docs-zeta/server'
+import { findNeighbour, getTableOfContents } from 'next-docs-zeta/server'
 import { notFound } from 'next/navigation'
 import { Content } from './content'
 
@@ -25,13 +25,13 @@ export default async function Page({ params }: { params: Param }) {
     const toc = await getTableOfContents(page.body.raw)
     const url = getPageUrl(page.slug)
     const neighbours = findNeighbour(tree, url)
-    const time = await getGitLastEditTime('CordXApp/Documentation', 'content/' + page._raw.sourceFilePath)
+    //const time = await getGitLastEditTime('CordXApp/Documentation', 'content/' + page._raw.sourceFilePath)
 
     return (
         <DocsPage
             toc={toc}
             footer={neighbours}
-            lastUpdate={time}
+            //lastUpdate={time}
             tocContent={
                 <a
                     href={`https://github.com/CordXApp/Documentation/blob/master/content/${page._raw.sourceFilePath}`}
