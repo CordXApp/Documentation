@@ -8,7 +8,7 @@ export function createMetadata(override: Metadata): Metadata {
             description: override.description ?? undefined,
             url: 'https://help.cordx.lol',
             images: '/banner.png',
-            siteName: 'Next Docs',
+            siteName: 'CordX Docs',
             ...override.openGraph
         },
         twitter: {
