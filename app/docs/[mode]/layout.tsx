@@ -1,6 +1,6 @@
 import { cn } from '@/utils/cn'
 import { getTree } from '@/utils/source'
-import { Code2Icon, SmileIcon, WorkflowIcon } from 'lucide-react'
+import { Code2Icon, SmileIcon, WorkflowIcon, LibraryIcon } from 'lucide-react'
 import { DocsLayout } from 'next-docs-ui/layout'
 import type { ReactNode } from 'react'
 const { version } = require('../../../package.json')
@@ -17,7 +17,7 @@ export default function Layout({ params, children }: { params: { mode: string };
     else if (params.mode === 'devs')
         [Icon, title, description] = [Code2Icon, `Dev Docs - v${version}`, 'API docs and usage guides']
     else if (params.mode === 'npm')
-        [Icon, title, description] = [WorkflowIcon, `NPM Docs - v${version}`, 'Documentation for our npm modules']
+        [Icon, title, description] = [LibraryIcon, `NPM Docs - v${version}`, 'Documentation for our npm modules']
     else [Icon] = [WorkflowIcon]
 
     return (
