@@ -6,11 +6,6 @@ type Response = {
     }
 }[]
 
-/**
- * @param repo The repository, example: "fuma/next-docs"
- * @param path the path to file
- * @deprecated use `getGithubLastEdit` instead
- */
 export async function getGitLastEditTime(
     repo: string,
     path: string,
@@ -28,7 +23,7 @@ export async function getGitLastEditTime(
 
 export type GetGithubLastCommitOptions = {
     /**
-     * Repository name, like "next-docs"
+     * Repository name
      */
     repo: string
 
