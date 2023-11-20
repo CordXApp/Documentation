@@ -7,7 +7,14 @@ import { useState } from 'react'
 
 export default function CustomSearchDialog(props: SearchDialogProps) {
     const { mode } = useParams()
-    const defaultTag = mode === 'devs' ? 'devs' : 'users'
+    let set_mode
+
+    if (mode === 'devs') set_mode = 'devs'
+    else if (mode === 'users') set_mode = 'users'
+    else if (mode === 'npm') set_mode = 'npm'
+    else set_mode = 'devs'
+
+    const defaultTag = set_mode
     const [tag, setTag] = useState<string>()
     const value = tag ?? defaultTag
 
@@ -33,6 +40,16 @@ export default function CustomSearchDialog(props: SearchDialogProps) {
                     tabIndex={-1}
                 >
                     Users
+                </button>
+                <button
+                    className={cn(
+                        'border px-2 py-0.5 rounded-md text-xs text-muted-foreground font-medium transition-colors',
+                        value === 'npm' && 'text-red-400 bg-red-400/10 border-red-400'
+                    )}
+                    onClick={() => setTag('npm')}
+                    tabIndex={-1}
+                >
+                    NPM
                 </button>
             </div>
         </SearchDialog>

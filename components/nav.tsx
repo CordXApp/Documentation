@@ -11,7 +11,7 @@ export function Nav() {
 
     return (
         <OriginalNav
-            enableSidebar={mode === 'devs' || mode === 'users'}
+            enableSidebar={mode === 'devs' || mode === 'users' || mode === 'npm'}
             links={[
                 {
                     icon: <GithubIcon aria-label="Github" className="h-5 w-5" />,

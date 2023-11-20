@@ -9,6 +9,10 @@ const config = {
     eslint: {
         // Replaced by root workspace command
         ignoreDuringBuilds: true
+    },
+    env: {
+        API_KEY: process.env.API_KEY,
+        GIT_TOKEN: process.env.GIT_TOKEN
     }
 }
 

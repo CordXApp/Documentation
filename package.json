@@ -1,6 +1,6 @@
 {
     "name": "@cordx/docs",
-    "version": "3.0.3",
+    "version": "4.0.1",
     "private": true,
     "scripts": {
         "build": "next build",
@@ -16,6 +16,7 @@
         "yarn": "Err: Yarn not supported"
     },
     "dependencies": {
+        "@cordxapp/client": "0.1.1",
         "@radix-ui/react-dialog": "^1.0.4",
         "autoprefixer": "10.4.15",
         "class-variance-authority": "^0.7.0",
