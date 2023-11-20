@@ -6,6 +6,8 @@ const withAnalyzer = require('@next/bundle-analyzer')({
 const config = {
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     reactStrictMode: true,
+    swcMinify: true,
+    compress: true,
     eslint: {
         // Replaced by root workspace command
         ignoreDuringBuilds: true
