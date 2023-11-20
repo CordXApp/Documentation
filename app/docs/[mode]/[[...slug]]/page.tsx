@@ -27,7 +27,6 @@ export default async function Page({ params }: { params: Param }) {
     const toc = await getTableOfContents(page.body.raw)
     const url = getPageUrl(page.slug)
     const neighbours = findNeighbour(tree, url)
-    //const time = await getGitLastEditTime('CordXApp/Documentation', 'content/' + page._raw.sourceFilePath)
     const time = await getGithubLastEdit({
         owner: 'CordXApp',
         repo: 'Documentation',
