@@ -1,0 +1,57 @@
+---
+title: UserProfile
+description: Typings for your instatus user profile.
+icon: InfoIcon
+---
+
+# Import the typings
+
+```ts
+import * as InstatusTypings from '@cordxapp/instatus/dist/typings/'
+```
+
+---
+
+## Typing Schema
+
+import { TypeTable } from 'next-docs-ui/components/type-table'
+
+<TypeTable
+    type={{
+        id: {
+            description: 'Instatus account id',
+            type: 'string',
+            default: ''
+        },
+        email: {
+            description: 'Instatus account email',
+            type: 'string',
+            default: ''
+        },
+        name: {
+            description: 'Instatus account name',
+            type: 'string',
+            default: ''
+        },
+        slug: {
+            description: 'Instatus account slug',
+            type: 'string',
+            default: ''
+        },
+        avatar: {
+            description: 'Instatus account avatar',
+            type: 'string',
+            default: ''
+        }
+    }}
+/>
+
+---
+
+## Usage Examples
+
+```ts title="Typescript"
+import * as UserTypings from '@cordxapp/instatus/dist/typings/user'
+
+async function getUserProfile(): Promise<UserTypings.UserProfile>
+```

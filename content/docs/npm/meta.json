@@ -13,6 +13,9 @@
         "request/getting-started",
         "request/get",
         "request/post",
-        "request/custom"
+        "request/custom",
+        "---Instatus---",
+        "instatus/index",
+        "instatus/typings"
     ]
 }
