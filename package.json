@@ -69,8 +69,7 @@
         "./**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx}": [
             "prettier -w ./app",
             "prettier -w ./components",
-            "prettier -w ./utils",
-            "prettier -w ./content/**/*"
+            "prettier -w ./utils"
         ]
     }
 }
