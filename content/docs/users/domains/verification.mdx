@@ -1,0 +1,51 @@
+---
+title: Domain Verification
+description: Information regarding verifying and setting up your custom domains inside your dns provider.
+icon: CheckIcon
+---
+
+import { Step, Steps } from 'next-docs-ui/components/steps'
+
+With the release of our custom domain support, we have decided to do everything we can to make sure
+domains aren't abused or falsely claimed. to achieve this we require users to verify a txt record
+on-top of adding our custom cname record.
+
+---
+
+## Verification
+
+if you recently added your domain to our website and need to verify it then follow the steps listed
+below and we will help get you setup.
+
+<Callout title="IMPORTANT" type="warn">
+    even after completing the steps listed below it could take some time for your dns changes to propagate, if you leave
+    our verification page open we will recheck it for you automatically every 2 minutes.
+</Callout>
+
+<Steps>
+    <Step>
+        ### Grab your verification info This can be found on the `/verify` page of our website. What you need is the
+        domain and the content.
+        <Callout title="NOTE" type="info">
+            you should also copy the url and save it for later as it contains the domain param you need to get back here
+            if you happen to leave this page ![verify](/dash/verification-page.png)
+        </Callout>
+    </Step>
+    <Step>
+        ### Head over to cloudflare Visit your domains dashboard within cloudflare and navigate to the `DNS > Records`
+        section ![yes yes](/dash/dns-records.png)
+    </Step>
+    <Step>
+        ### Create a new txt record Click on the blue `add record` button you need to set up the record to match the
+        information on the verification page, so you want to set the records type to `TXT`, set the name to `@` and set
+        the content to the content shown on your verification page. Example below 👇 ![txt record](/dash/txt-record.png)
+    </Step>
+    <Step>
+        ### Save your changes Leave the record attributes empty and save your changes, once your changes have saved
+        navigate to `caching > configuration` and click the `purge everything` button 👇 ![caching
+        ok](/domains/caching.png)
+    </Step>
+</Steps>
+
+now that you have completed the verification process while we wait for the changes to propagate we can head over to the
+[Domain Setup](/docs/users/domains/setup) section to setup the needed cname record.

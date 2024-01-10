@@ -6,10 +6,8 @@ import type { Metadata } from 'next'
 import { MDXContent } from 'next-docs-ui/mdx'
 import { DocsPage } from 'next-docs-ui/page'
 import { findNeighbour, getTableOfContents } from 'next-docs-zeta/server'
-import { getGithubLastEdit } from '@/utils/git'
 import { notFound } from 'next/navigation'
 import { Content } from './content'
-import { resolve } from 'url'
 
 type Param = {
     mode: string
@@ -27,18 +25,18 @@ export default async function Page({ params }: { params: Param }) {
     const toc = await getTableOfContents(page.body.raw)
     const url = getPageUrl(page.slug)
     const neighbours = findNeighbour(tree, url)
-    const time = await getGithubLastEdit({
-        owner: 'CordXApp',
-        repo: 'Documentation',
-        path: resolve('content/docs', page._raw.sourceFilePath),
-        token: process.env.GIT_TOKEN ? `Bearer ${process.env.GIT_TOKEN}` : undefined
-    })
+    //const time = await getGithubLastEdit({
+    //    owner: 'CordXApp',
+    //    repo: 'Documentation',
+    //    path: resolve('content/docs', page._raw.sourceFilePath),
+    //    token: process.env.GIT_TOKEN ? `Bearer ${process.env.GIT_TOKEN}` : undefined
+    //})
 
     return (
         <DocsPage
             toc={toc}
             footer={neighbours}
-            lastUpdate={time}
+            //lastUpdate={time}
             tocContent={
                 <a
                     href={`https://github.com/CordXApp/Documentation/blob/master/content/${page._raw.sourceFilePath}`}

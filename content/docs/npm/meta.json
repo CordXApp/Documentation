@@ -1,21 +1,3 @@
 {
-    "pages": [
-        "---Guide---",
-        "index",
-        "---Pastes---",
-        "pastes/index",
-        "pastes/getting-started",
-        "pastes/new",
-        "pastes/get",
-        "pastes/raw",
-        "---Request---",
-        "request/index",
-        "request/getting-started",
-        "request/get",
-        "request/post",
-        "request/custom",
-        "---Instatus---",
-        "instatus/index",
-        "instatus/typings"
-    ]
+    "pages": ["---Guide---", "index", "pastes", "request", "instatus"]
 }

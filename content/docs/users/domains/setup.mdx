@@ -1,0 +1,26 @@
+---
+title: Domain Setup
+description: Information regarding adding your cname record to your dns provider.
+icon: CogIcon
+---
+
+import { Step, Steps } from 'next-docs-ui/components/steps'
+
+Adding our required `cname` record and configuring your dns provider to work with our
+services is pretty straight forward, just follow the steps below 👇👇
+
+<Steps>
+    <Step>
+        ### Create a new DNS record You want to create a new "`proxied`" dns record that points to the domain you want
+        to use/verified in the previous step, for this example you want to configure your dns records to look something
+        like the ones we have listed below ![Cloudflare Sample](/domains/records.png)
+    </Step>
+    <Step>
+        ### Navigate to your SSL section This is located in `SSL/TLS > Overview`, in this section you want to set the
+        encryption mode to `Full` or `Full (strict)` ![SSL Sample](/domains/encryption.png)
+    </Step>
+    <Step>
+        ### Clear your DNS cache. Navigate to `Caching > Configuration` and click on the "`purge everything`" button.
+        ![Caching Sample](/domains/caching.png)
+    </Step>
+</Steps>

@@ -1,0 +1,29 @@
+---
+title: getUserProfile
+description: Fetch your public profile information
+icon: UserIcon
+---
+
+You can use the following method to fetch your public profile information
+such as email, name and slug.
+
+---
+
+## Imports
+
+```js title="Commonjs"
+const { InstatusClient } = require('@cordxapp/instatus')
+```
+
+---
+
+## Usage
+
+```js title="Commonjs"
+const instatus = new InstatusClient({
+    apiKey: 'YOUR_INSTATUS_API_KEY',
+    apiVersion: 'INSTATUS_API_VERSION' // Should be 'v1' or 'v2'
+})
+
+const user = await instatus.getUserProfile()
+```

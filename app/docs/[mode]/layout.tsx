@@ -5,19 +5,18 @@ import { DocsLayout } from 'next-docs-ui/layout'
 import type { ReactNode } from 'react'
 const { version } = require('../../../package.json')
 
-export default function Layout({ params, children }: { params: { mode: string }; children: ReactNode }) {
+export default async function Layout({ params, children }: { params: { mode: string }; children: ReactNode }) {
     const tree = getTree(params.mode)
 
     let Icon
     let title
     let description
 
-    if (params.mode === 'users')
-        [Icon, title, description] = [SmileIcon, `User Guides - v${version}`, 'Guides and information']
+    if (params.mode === 'users') [Icon, title, description] = [SmileIcon, `User Guides - `, 'Guides and information']
     else if (params.mode === 'devs')
-        [Icon, title, description] = [Code2Icon, `Dev Docs - v${version}`, 'API docs and usage guides']
+        [Icon, title, description] = [Code2Icon, `Dev Docs - `, 'API docs and usage guides']
     else if (params.mode === 'npm')
-        [Icon, title, description] = [LibraryIcon, `NPM Docs - v${version}`, 'Documentation for our npm modules']
+        [Icon, title, description] = [LibraryIcon, `NPM Docs - `, 'Documentation for our npm modules']
     else [Icon] = [WorkflowIcon]
 
     return (
@@ -38,7 +37,10 @@ export default function Layout({ params, children }: { params: { mode: string };
                     <div className="flex flex-row gap-2 items-center p-2 rounded-lg border bg-card text-card-foreground transition-colors shadow-lg shadow-background hover:bg-muted">
                         <Icon className="w-9 h-9 p-1 shrink-0 border rounded-md text-primary bg-background" />
                         <div>
-                            <p className="font-medium text-sm">{title}</p>
+                            <p className="font-medium text-sm">
+                                {title}
+                                <a href="https://github.com/CordXApp/API/releases">v{version}</a>
+                            </p>
                             <p className="text-muted-foreground text-xs">{description}</p>
                         </div>
                     </div>
