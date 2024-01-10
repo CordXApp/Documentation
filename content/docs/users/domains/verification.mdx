@@ -24,27 +24,34 @@ below and we will help get you setup.
 
 <Steps>
     <Step>
-        ### Grab your verification info This can be found on the `/verify` page of our website. What you need is the
-        domain and the content.
+        ### Grab your verification info 
+        
+        This can be found on the `/verify` page of our website. What you need is the domain and the content.
+
         <Callout title="NOTE" type="info">
             you should also copy the url and save it for later as it contains the domain param you need to get back here
             if you happen to leave this page ![verify](/dash/verification-page.png)
         </Callout>
     </Step>
     <Step>
-        ### Head over to cloudflare Visit your domains dashboard within cloudflare and navigate to the `DNS > Records`
-        section ![yes yes](/dash/dns-records.png)
+        ### Head over to cloudflare
+
+        Visit your domains dashboard within cloudflare and navigate to the `DNS > Records` section ![yes yes](/dash/dns-records.png)
     </Step>
     <Step>
-        ### Create a new txt record Click on the blue `add record` button you need to set up the record to match the
-        information on the verification page, so you want to set the records type to `TXT`, set the name to `@` and set
-        the content to the content shown on your verification page. Example below 👇 ![txt record](/dash/txt-record.png)
+        ### Create a new txt record
+
+        Click on the blue `add record` button you need to set up the record to match the information on the verification page,
+        so you want to set the records type to `TXT`, set the name to `@` and set the content to the content shown on your
+        verification page. Example below 👇 ![txt record](/dash/txt-record.png)
     </Step>
     <Step>
-        ### Save your changes Leave the record attributes empty and save your changes, once your changes have saved
-        navigate to `caching > configuration` and click the `purge everything` button 👇 ![caching
-        ok](/domains/caching.png)
+        ### Save your changes
+
+        Leave the record attributes empty and save your changes, once your changes have saved navigate to `caching > configuration`
+        and click the `purge everything` button 👇 ![caching ok](/domains/caching.png)
     </Step>
+
 </Steps>
 
 now that you have completed the verification process while we wait for the changes to propagate we can head over to the
