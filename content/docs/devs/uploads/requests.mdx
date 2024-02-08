@@ -14,16 +14,9 @@ sharex so long as you have basic knowledge regarding using a restful api!
 
 ## Base URL
 
-> `https://beta.cordx.lol/api/upload/sharex`
+> `https://cordx.lol/api/upload/sharex`
 
 ---
-
-## Note
-
--   Your `userid` and `secret` can be obtained in your `/me/config` page on our website
-    or by using our [discord bot](https://discord.com/api/oauth2/authorize?client_id=829634899748716546&permissions=49450776919873&scope=bot%20applications.commands)
-
--   Uploaded files are currently limited to a max size of `50MB`
 
 ## Required headers
 
@@ -42,31 +35,54 @@ sharex so long as you have basic knowledge regarding using a restful api!
 
 ---
 
-## Example request
+## Basic Usage
 
-```js title="Javascript Example"
-const fetch = require('node-fetch');
-const fs = require('fs');
+Before you get started please make sure you:
+1. **Prepare your file for upload:** The file you want to upload should be included in the body of the POST request. 
+   - The maximum file size is currently `500 MB` for all users.
+2. **Set the necessary headers**: Include the following headers in your request:
+   - `secret`: This should be the secret associated with your user account.
+   - `userid`: This should be your Discord User ID/Snowflake.
+3. **Send the POST request:** You can use any HTTP client to achieve this.
 
-const stats = fs.statSync("YOUR_FILE.png");
-const fileSizeInBytes = stats.size;
-let readStream = fs.createReadStream('YOUR_FILE.png');
+<Callout title="NOTE" type="info">
+    - custom domains can interact with this api using the `/api/upload/sharex` endpoint!
+    - Your `userid` and `secret` can be obtained in your `/me/config` page or by using the `/profile` command in our [discord bot](https://discord.com/api/oauth2/authorize?client_id=829634899748716546&permissions=49450776919873&scope=bot%20applications.commands)!
+</Callout>
 
-const customHeaders = {
-    "Content-Length": fileSizeInBytes,
-    "Content-Type": "image/png",
-    "userid": "YOUR_USER_ID",
-    "secret": "YOUR_CORDX_SECRET",
-}
-
-await fetch('beta.cordx.lol/api/upload/sharex', {
-    method: 'POST',
-    headers: customHeaders,
-    body: readStream
-}).then(async function(res) => {
-
-    await console.log(res.json());
-    return res.json();
-}).catch((e) => console.log(e.stack));
-
+### Curl Example
+```shell
+curl -X POST -H "secret: your-secret" -H "userid: your-userid" -F "file=@path-to-your-file" https://cordx.lol/api/upload/sharex
 ```
+
+### Fetch Example
+
+<Callout title="NOTE" type="info">
+    - Both `fetch` and `formData` are built in libraries/API's.
+    - This code should serve only as a template and may not work.
+    - `sharex` is a File object representing the file to upload
+</Callout>
+
+```ts
+const formData = new FormData();
+
+formData.append('sharex', file);
+
+const response = await fetch('https://cordx.lol/api/upload/sharex', {
+  method: 'POST',
+  headers: {
+    'secret': 'your-secret',
+    'userid': 'your-userid'
+  },
+  body: formData
+});
+
+if (response.ok) {
+  const data = await response.json();
+  console.log(data);
+} else {
+  console.error('Upload failed');
+}
+```
+
+

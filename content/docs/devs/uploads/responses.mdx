@@ -6,110 +6,142 @@ icon: HardDriveDownloadIcon
 
 import { TypeTable } from 'next-docs-ui/components/type-table'
 
-Our upload will return a variety of response based on the provided
-headers and parameters for the request. for example if you provide
-a invalid secret the server will respond with a invalid secret message.
+Our upload server will return a wide variety of responses based on the provided headers 
+and parameters for the request. for example if you provide a invalid secret the server will 
+respond with a invalid secret message.
+
+<Callout title="NOTE" type="info">
+    ShareX may throw errors that have nothing to do with a failure in our upload server, these errors will not 
+    be listed on this page and if you get one **or any error at all** you can join our 
+    [Discord Server](https://cordx.lol/discord) for support.
+</Callout>
+
 
 ---
 
 ## Expected responses
 
-### 200
+Any of the errors listed below, will provide some details as to what is wrong
+and possibly even a link to join our discord server for support.
 
 <TypeTable
     type={{
-        '200': {
-            description: 'Request was successful',
-            type: 'STRING',
-            default: 'OK'
+        200: {
+            default: 'OK',
+            description: 'The request was successful',
+            type: 'STRING'
+        },
+        400: {
+            description: 'Invalid parameters were provided',
+            type: 'STRING'
+        },
+        401: {
+            description: 'Unable to authorize the request',
+            type: 'STRING'
+        },
+        403: {
+            description: 'The request was forbidden',
+            type: 'STRING'
+        },
+        500: {
+            description: 'There was an error in the request',
+            type: 'STRING'
         }
     }}
 />
 
-```js title="200 - OK"
-{
-    status: 'OK',
-    errormsg: '',
-    url: `URL_TO_YOUR_IMAGE`
-}
+### 400 Responses
+
+```ts
+status: '[MISSING_SECRET]',
+message: 'secret is missing from the request headers',
+support: 'https://cordx.lol/discord'
 ```
 
-### 500
-
-<TypeTable
-    type={{
-        '500': {
-            description: 'An error occurred while processing your request',
-            type: 'STRING',
-            default: 'client aborted the request'
-        }
-    }}
-/>
-
-```js title="500 - Default/Abort"
-{
-    status: 'UPLOAD_ERROR',
-    errormsg: 'client aborted the request',
-    url: '[CORDX]: aborted'
-}
+```ts
+status: '[MISSING_USERID]',
+message: 'userid is missing from the request headers',
+support: 'https://cordx.lol/discord'
 ```
 
-<br />
-
-```js title="500 - Internal Error"
-{
-    status: 'UPLOAD_ERROR',
-    errormsg: 'some error message here (it will be detailed and explain the issue)',
-    url: ''
-}
+```ts
+status: '[NO_POST_DATA]',
+message: 'no file was provided',
+support: 'https://cordx.lol/discord'
 ```
 
-### 400
-
-<TypeTable
-    type={{
-        '400': {
-            description: 'Bad request',
-            type: 'STRING',
-            default: 'none'
-        }
-    }}
-/>
-
-```js title="400 - No secret"
-{
-    status: 'NO_SECRET_HEADER',
-    errormsg: 'No secret provided in header params',
-    url: '[CORDX]: unable to locate secret'
-}
+```ts
+status: '[FILE_TOO_LARGE]',
+message: 'file size is too large, max file size is 500 MB',
+support: 'https://cordx.lol/discord'
 ```
 
-<br />
+### 401 Responses
 
-```js title="400 - No userid"
-{
-    status: 'NO_USERID_HEADER',
-    errormsg: 'No userid provided in header params',
-    url: '[CORDX]: unable to locate userid'
-}
+```ts
+status: 'MISSING_USER',
+message: 'unable to find a user with the provided secret and userid',
+support: 'https://cordx.lol/discord'
 ```
 
-<br />
-
-```js title="400 - No post data"
-{
-    status: 'NO_POST_DATA',
-    errormsg: 'No valid uploads provided',
-    url: '[CORDX]: No post data received'
-}
+```ts
+status: '[INVALID_SECRET]',
+message: 'the provided secret is invalid',
+support: 'https://cordx.lol/discord'
 ```
 
-<br />
+### 403 Responses
 
-```js title="400 - File size limit"
-{
-    status: 'FILE_SIZE_LIMITED',
-    errormsg: 'Whoops, looks like you have hit your file size limit. We currently limit uploads to `50M`',
-    url: '[CORDX]: file size limited'
-}
+```ts
+status: '[BANNED_USER]',
+message: 'you are banned from using the CordX Upload Service',
+support: 'https://cordx.lol/discord'
+```
+
+```ts
+status: '[UNVERIFIED_DOMAIN]',
+message: 'this domain is not verified with CordX',
+support: 'https://cordx.lol/discord'
+```
+
+```ts
+status: '[UNAUTHORIZED_USER]',
+message: 'this subdomain is limited to the cordx development team',
+support: 'https://cordx.lol/discord'
+```
+
+### 500 Responses
+
+```ts
+status: '[UPLOAD_FAILED]',
+errormsg: 'client aborted the request'
+```
+
+```ts
+status: '[UPLOAD_FAILED]',
+errormsg: `error parsing file: **more details will be provided here in the actual error message**`
+```
+
+```ts
+status: '[UPLOAD_ERROR]',
+message: 'An error occurred while processing the file',
+error: **more details will be provided here in the actual error message**
+```
+
+```ts
+status: '[UPLOAD_FAILED]',
+message: 'failed to insert image into database',
+error: **more details will be provided here in the actual error message**
+```
+
+```ts
+status: '[UPLOAD_FAILED]',
+message: 'failed to create image record in database',
+error: **more details will be provided here in the actual error message**
+```
+
+```ts
+status: '[CORDX_BUCKET_ERROR]',
+message: 'failed to upload image to the cordx bucket',
+errormsg: **more details will be provided here in the actual error message**
 ```
